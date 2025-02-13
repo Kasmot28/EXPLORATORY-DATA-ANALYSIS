@@ -3,8 +3,7 @@ title: "FA2_EXPLORATORY_DATA_ANALYSIS"
 author: "QUINTERO"
 date: "13 February 2025"
 output:
-  html_document:
-    df_print: paged
+  github_document
 ---
 
 

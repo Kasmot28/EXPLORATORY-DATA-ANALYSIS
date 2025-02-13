@@ -86,8 +86,6 @@ head(summary_stats)
 # Load ggplot2
 library(ggplot2)
 
-png("spread_location_plot.png", width = 800, height = 600)
-
 ggplot(summary_stats, aes(x = mad_level, y = median_level)) +
   geom_point(color = "blue", size = 2) +  
   labs(

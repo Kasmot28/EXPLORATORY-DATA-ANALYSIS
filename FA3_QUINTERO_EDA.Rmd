@@ -1,0 +1,56 @@
+---
+title: "FA3_EXPLORATORY-DATA-ANALYSIS"
+author: "QUINTERO"
+date: "2025-02-28"
+output: html_document
+---
+
+### UPLOADING THE NECESSARY LIBRARIES AND IMPORTING OF BUILT IN DATASET
+```{r}
+library("tidyverse")
+library("ggplot2")
+data("diamonds")
+```
+
+### Create a histogram on the diamonds dataset, for example with
+###ggplot() + geom_histogram(aes(x = carat), data = diamonds)
+
+```{r}
+histo_layer <- ggplot(diamonds, aes(x = carat)) +
+  geom_bar(stat = "bin", position = "stack", aes(y = after_stat(count)))
+print(histo_layer)
+```
+
+### Remember that a histogram is a plot with stat_bin and geom_bar. Modify your histogram code so that it uses a different geom, for example geom_line or geom_point. This should be simple once you have the layer specification of a histogram.
+
+```{r}
+histo_layer2 <- ggplot(diamonds, aes(x = carat)) +
+  geom_point(stat = "bin", position = "identity", aes(y = after_stat(count)))
+print(histo_layer2)
+```
+
+### We can also use lines for visualization.
+
+```{r}
+histo_layer3 <- ggplot(diamonds, aes(x = carat)) +
+  geom_line(stat = "bin", position = "identity", aes(y = after_stat(count)))
+print(histo_layer3)
+```
+
+### In your histogram (the one plotted with bars that you created in question 1), add an aesthetic mapping from one of the factor variables (maybe color or clarity) to the fill or color aesthetic.
+
+```{r}
+histo_layer4 <- ggplot(diamonds, aes(x = carat, fill = color)) +
+  geom_bar(stat = "bin", position = "stack", aes(y = after_stat(count)))
+print(histo_layer4)
+```
+
+### What is the default position adjustment for a histogram? Try changing the position adjustment in the histogram you created in question 3 to something different (hint: try dodge). 
+
+```{r}
+histo_layer5 <- ggplot(diamonds, aes(x = carat, fill = color)) +
+  geom_bar(stat = "bin", position = "dodge", aes(y = after_stat(count)))
+print(histo_layer5)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
